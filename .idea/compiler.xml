@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="pingyou-gou-dao" />
+        <module name="pingyou-gou-pojo" />
+        <module name="pingyougou-common" />
+        <module name="pingyougou-manager-web" />
+        <module name="pingyougou-sellergoods-interface" />
+        <module name="pingyougou-sellergoods-service" />
+        <module name="pingyougou-shop-web" />
+        <module name="pingyougousellers-goods-interface" />
+        <module name="springSecurity" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="pingyou-gou-dao" target="1.8" />
+      <module name="pingyou-gou-parent" target="1.8" />
+      <module name="pingyou-gou-pojo" target="1.8" />
+      <module name="pingyougou-common" target="1.8" />
+      <module name="pingyougou-manager-web" target="1.8" />
+      <module name="pingyougou-sellergoods-interface" target="1.8" />
+      <module name="pingyougou-sellergoods-service" target="1.8" />
+      <module name="pingyougou-shop-web" target="1.8" />
+      <module name="pingyougousellers-goods-interface" target="1.5" />
+      <module name="springSecurity" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
