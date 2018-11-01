@@ -23,7 +23,6 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private TbItemMapper itemMapper;
-	
 	/**
 	 * 查询全部
 	 */

@@ -10,6 +10,7 @@ com\pinyougou\pojo\TbOrderItemExample$Criteria.class
 com\pinyougou\pojo\TbAreasExample$Criteria.class
 com\pinyougou\pojo\TbFreightTemplateExample$GeneratedCriteria.class
 com\pinyougou\pojo\TbFreightTemplateExample.class
+com\pingyougou\pojogroup\Goods.class
 com\pinyougou\pojo\TbPayLogExample.class
 com\pinyougou\pojo\TbUserExample$GeneratedCriteria.class
 com\pinyougou\pojo\TbGoodsDesc.class
@@ -24,6 +25,7 @@ com\pinyougou\pojo\TbItemCatExample$Criterion.class
 com\pinyougou\pojo\TbTypeTemplateExample$Criteria.class
 com\pinyougou\pojo\TbAddressExample$Criteria.class
 com\pinyougou\pojo\TbBrandExample$Criterion.class
+com\pingyougou\pojogroup\Specification.class
 com\pinyougou\pojo\TbUserExample$Criteria.class
 com\pinyougou\pojo\TbGoodsDescExample$Criterion.class
 com\pinyougou\pojo\TbCitiesExample$Criteria.class

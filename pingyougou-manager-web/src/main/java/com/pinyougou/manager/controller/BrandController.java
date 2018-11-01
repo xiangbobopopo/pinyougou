@@ -111,10 +111,10 @@ public class BrandController {
 		return brandService.findPage(brand, page, rows);		
 	}
 	
-	
-//	@RequestMapping("/selectOptionList")
-//	public List<Map> selectOptionList() {
-//		return brandService.selectOptionList();
-//	}
+	//select2品牌下拉框数据;
+	@RequestMapping("/selectOptionList")
+	public List<Map> selectOptionList() {
+		return brandService.selectOptionList();
+	}
 
 }

@@ -101,14 +101,15 @@ public class ItemCatController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
-	 * @param page
-	 * @param rows
-	 * @return
 	 */
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbItemCat itemCat, int page, int rows  ){
 		return itemCatService.findPage(itemCat, page, rows);		
 	}
-	
+
+	@RequestMapping("/findByParentId")
+	public List<TbItemCat> findByParentId(Long parentId){
+		return itemCatService.findByParentId(parentId);
+	}
+
 }

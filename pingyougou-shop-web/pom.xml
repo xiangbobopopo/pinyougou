@@ -11,9 +11,6 @@
 
     <packaging>war</packaging>
     <artifactId>pingyougou-shop-web</artifactId>
-
-
-
     <dependencies>
         <!-- Spring -->
         <dependency>
@@ -83,6 +80,36 @@
             <scope>provided</scope>
         </dependency>
 
+
+        <!--引入依赖, -->
+        <dependency>
+            <groupId>com.pingyougou</groupId>
+            <artifactId>pingyougou-sellergoods-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>RELEASE</version>
+        </dependency>
+
+        <!--spring-security相关依赖-->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+        </dependency>
+        <!--spring-security相关依赖-->
+
+        <!--pingyougou项目commons依赖-->
+        <dependency>
+            <groupId>com.pingyougou</groupId>
+            <artifactId>pingyougou-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

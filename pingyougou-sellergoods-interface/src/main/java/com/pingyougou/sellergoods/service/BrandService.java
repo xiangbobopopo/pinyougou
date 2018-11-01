@@ -4,6 +4,7 @@ import com.pinyougou.pojo.TbBrand;
 import entity.PageResult;
 
 import java.util.List;
+import java.util.Map;
 
 public interface BrandService {
 	//1,查找全部的tbBrand;
@@ -20,4 +21,6 @@ public interface BrandService {
 	public void delete(Long[] ids);
 	//搜索按照条件搜索数据;
 	public PageResult findPage(TbBrand brand, int pageNumber, int pageSize);
+	//品牌下拉框数据;
+	List<Map> selectOptionList();
 }

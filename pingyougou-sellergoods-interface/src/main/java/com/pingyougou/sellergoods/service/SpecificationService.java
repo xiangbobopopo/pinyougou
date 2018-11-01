@@ -1,6 +1,8 @@
 package com.pingyougou.sellergoods.service;
 import java.util.List;
+import java.util.Map;
 
+import com.pingyougou.pojogroup.Specification;
 import com.pinyougou.pojo.TbSpecification;
 import entity.PageResult;
 /**
@@ -26,14 +28,15 @@ public interface SpecificationService {
 	
 	/**
 	 * 增加
+	 * 这里的参数Specification为pojogroup中根据表新建的数据;
 	*/
-	public void add(TbSpecification specification);
+	public void add(Specification specification);
 	
 	
 	/**
 	 * 修改
 	 */
-	public void update(TbSpecification specification);
+	public void update(Specification specification);
 	
 
 	/**
@@ -41,7 +44,7 @@ public interface SpecificationService {
 	 * @param id
 	 * @return
 	 */
-	public TbSpecification findOne(Long id);
+	public Specification findOne(Long id);
 	
 	
 	/**
@@ -57,5 +60,8 @@ public interface SpecificationService {
 	 * @return
 	 */
 	public PageResult findPage(TbSpecification specification, int pageNum, int pageSize);
+
+	//规格下拉框数据;
+	List<Map> selectOptionList();
 	
 }

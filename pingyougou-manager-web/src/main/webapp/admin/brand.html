@@ -14,119 +14,22 @@
 
     <!--导入angularJS-->
     <script type="text/javascript" src="../plugins/angularjs/angular.min.js "></script>
-
-
     <!-- 两个组件一定要放在AngularJS之后 -->
     <script src="../plugins/angularjs/pagination.js"></script>
     <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
     <!-- 分页组件结束 -->
 
-
-    <script>
-        <!--定义一个域, 定义一个controller-->
-        var app = angular.module('pingyougou', ['pagination']);
-        app.controller('brandController', function ($scope, $http) {
-
-            $scope.findAll = function () {
-                $http.get("../brand/findAll.do").success(
-                    function (response) {
-                        $scope.list = response;
-                    }
-                )
-            }
-
-            $scope.reloadList = function () {//切换页码
-                $scope.search($scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
-            }
-//分页控件配置
-            $scope.paginationConf = {
-                currentPage: 1,
-                totalItems: 10,
-                itemsPerPage: 10,
-                perPageOptions: [10, 20, 30, 40, 50],
-                onChange: function () {
-                    $scope.reloadList();//重新加载
-                }
-            };
-
-            $scope.findPage = function (page, rows) {
-                $http.get('../brand/findPage.do?page=' + page + '&rows=' + rows).success(
-                    function (response) {
-                        $scope.list = response.rows;
-                        $scope.paginationConf.totalItems = response.total;//更新总记录数
-                    }
-                );
-            }
-
-            /*保存修改的数据
-            * */
-            $scope.save = function () {
-                var methodName = 'add';//由于添加,修改都使用到了save这个方法, 需要进行判断;
-                if ($scope.entity.id != null) {//先添加设定一个默认值,如果提交的数据中,id不为空,说明已经存在,于是使用update方法;
-                    methodName = "update"
-                }
-
-                $http.post('../brand/' + methodName + '.do', $scope.entity).success(
-                    function (response) {
-                        if (response.success) {
-                            //重新查询
-                            $scope.reloadList();//重新加载
-                        } else {
-                            alert(response.message);
-                        }
-                    }
-                );
-            }
-
-            $scope.findOne = function (id) {
-                $http.get("../brand/findOne.do?id=" + id).success(
-                    function (response) {
-                        $scope.entity = response;
-                    }
-                )
-            }
-
-            $scope.selectIDs = [];
-            $scope.updateSelection = function ($event, id) {
-                if ($event.target.checked) {
-                    $scope.selectIDs.push(id)
-
-                } else {
-                    var idx = $scope.selectIDs.indexOf(id);
-                    $scope.selectIDs.splice(id);
-                }
-            }
-            $scope.delete = function () {
-                $http.get("../brand/delete.do?ids=" + $scope.selectIDs).success(
-                    function (response) {
-                        if (response.success) {
-                            //将列表刷新;
-                            $scope.reloadList();
-                        }
-                    }
-                )
-            }
-            $scope.searchEntity = {};//确保一开始不为null;
-            //根据条件进行查询;
-            $scope.search = function(page,rows){
-                $http.post('../brand/search.do?page=' + page + "&rows=" + rows, $scope.searchEntity).success(
-                    function (response) {
-                        $scope.paginationConf.totalItems = response.total;//总记录数
-                        $scope.list = response.rows;//给列表变量赋值
-                    }
-                );
-            }
-        })
-
-        //条件查询
-
-
-
-
-    </script>
-
-
+    <!--引入各个分层完毕后的js, 下面的两个js只能引入一个-->
+    <!--<script src="../js/base.js"></script>-->
+    <script src="../js/base_pagination.js"></script>
+    <!--引入各个分层完毕后的js, 下面的两个js只能引入一个-->
+    <!--导入service层, controller层js-->
+    <script src="../js/service/brandService.js"></script>
+    <script src="../js/brandController/BaseController.js"></script>
+    <script src="../js/brandController/BrandController.js"></script>
 </head>
+
+
 <!--指定模块名称和控制器-->
 <body class="hold-transition skin-red sidebar-mini" ng-app="pingyougou" ng-controller="brandController">
 <!-- .box-body -->
@@ -135,7 +38,6 @@
 </div>
 
 <div class="box-body">
-
     <!-- 数据表格 -->
     <div class="table-box">
         <!--工具栏-->
@@ -156,7 +58,8 @@
         </div>
         <div class="box-tools pull-right">
             <div class="has-feedback">
-                品牌id:<input ng-model="searchEntity.id"> 品牌名称:<input ng-model="searchEntity.name"> <buttion class="btn btn-default" ng-click="reloadList()">提交查询</buttion>
+                品牌id:<input ng-model="searchEntity.id"> 品牌名称:<input ng-model="searchEntity.name">
+                <buttion class="btn btn-default" ng-click="reloadList()">提交查询</buttion>
             </div>
         </div>
         <!--工具栏/-->

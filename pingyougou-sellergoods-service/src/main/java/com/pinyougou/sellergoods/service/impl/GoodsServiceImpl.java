@@ -1,8 +1,11 @@
 package com.pinyougou.sellergoods.service.impl;
 import java.util.List;
 
+import com.pingyougou.pojogroup.Goods;
+import com.pinyougou.mapper.TbGoodsDescMapper;
 import com.pinyougou.mapper.TbGoodsMapper;
 import com.pinyougou.pojo.TbGoods;
+import com.pinyougou.pojo.TbGoodsDesc;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
@@ -41,14 +44,21 @@ public class GoodsServiceImpl implements GoodsService {
 		Page<TbGoods> page=   (Page<TbGoods>) goodsMapper.selectByExample(null);
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-
-	/**
-	 * 增加
-	 */
+/*组合实体类
+* 从goods对象中拿出两个对象，
+ * 拿到goodsMapper和goodDescMapper
+ * 调用insert方法*/
+	@Autowired
+	private TbGoodsDescMapper tbGoodsDescMapper;
 	@Override
-	public void add(TbGoods goods) {
-		goodsMapper.insert(goods);		
+	public void add(Goods goods) {
+		goods.getGoods().setAuditStatus("0");//将第一商品表的status设置为0；
+		goodsMapper.insert(goods.getGoods());//将数据插入
+
+		goods.getGoodDesc().setGoodsId(goods.getGoods().getId());//将第二个表的id设置为第一个表中的id, 即设置外键;
+		tbGoodsDescMapper.insert(goods.getGoodDesc());//插入数据;
 	}
+
 
 	
 	/**

@@ -2,6 +2,7 @@ package com.pingyougou.sellergoods.service;
 import java.util.List;
 
 
+import com.pingyougou.pojogroup.Goods;
 import com.pinyougou.pojo.TbGoods;
 import entity.PageResult;
 /**
@@ -26,9 +27,13 @@ public interface GoodsService {
 	
 	
 	/**
-	 * 增加
+	 * 需要在两个表中添加数据,
+	 * 于是使用组合实体类,
+	 * 于是修改这里的TbGoods为我们自己创建的Goods;
+	 *
+	 *
 	*/
-	public void add(TbGoods goods);
+	public void add(Goods goods);
 	
 	
 	/**

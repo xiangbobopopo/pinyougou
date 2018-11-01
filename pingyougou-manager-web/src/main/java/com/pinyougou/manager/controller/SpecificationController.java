@@ -1,6 +1,8 @@
 package com.pinyougou.manager.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
+
+import com.pingyougou.pojogroup.Specification;
 import com.pingyougou.sellergoods.service.SpecificationService;
 import com.pinyougou.pojo.TbSpecification;
 import entity.PageResult;
@@ -42,48 +44,47 @@ public class SpecificationController {
 		return specificationService.findPage(page, rows);
 	}
 	
-//	/**
-//	 * 增加
-//	 * @param specification
-//	 * @return
-//	 */
-//	@RequestMapping("/add")
-//	public Result add(@RequestBody Specification specification){
-//		try {
-//			specificationService.add(specification);
-//			return new Result(true, "增加成功");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return new Result(false, "增加失败");
-//		}
-//	}
-//
-//	/**
-//	 * 修改
-//	 * @param specification
-//	 * @return
-//	 */
-//	@RequestMapping("/update")
-//	public Result update(@RequestBody Specification specification){
-//		try {
-//			specificationService.update(specification);
-//			return new Result(true, "修改成功");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			return new Result(false, "修改失败");
-//		}
-//	}
+	/**
+	 * 增加
+	 * 这里的specification为两个表的复合pojo类;
+	 */
+	@RequestMapping("/add")
+	public Result add(@RequestBody Specification specification){
+		try {
+			specificationService.add(specification);
+			return new Result(true, "增加成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "增加失败");
+		}
+	}
+
+	/**
+	 * 修改
+	 * @param specification
+	 * @return
+	 */
+	@RequestMapping("/update")
+	public Result update(@RequestBody Specification specification){
+		try {
+			specificationService.update(specification);
+			return new Result(true, "修改成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new Result(false, "修改失败");
+		}
+	}
 	
-//	/**
-////	 * 获取实体
-////	 * @param id
-////	 * @return
-////	 */
-////	@RequestMapping("/findOne")
-////	public Specification findOne(Long id){
-////		return specificationService.findOne(id);
-////	}
-////
+	/**
+	 * 获取实体
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/findOne")
+	public Specification findOne(Long id){
+		return specificationService.findOne(id);
+	}
+
 	/**
 	 * 批量删除
 	 * @param ids
@@ -111,10 +112,9 @@ public class SpecificationController {
 	public PageResult search(@RequestBody TbSpecification specification, int page, int rows  ){
 		return specificationService.findPage(specification, page, rows);		
 	}
-	
-//	@RequestMapping("/selectOptionList")
-//	public List<Map> selectOptionList(){
-//		return specificationService.selectOptionList();
-//	}
-//
+
+	@RequestMapping("/selectOptionList")
+	public List<Map> selectOptionList(){
+		return specificationService.selectOptionList();
+	}
 }

@@ -300,6 +300,5 @@
         <module>pingyougou-common</module>
         <module>pingyougou-sellergoods-service</module>
         <module>pingyougou-sellergoods-interface</module>
-        <module>springSecurity</module>
     </modules>
 </project>

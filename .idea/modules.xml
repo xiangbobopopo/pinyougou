@@ -10,7 +10,6 @@
       <module fileurl="file://$PROJECT_DIR$/pingyougou-sellergoods-interface/pingyougou-sellergoods-interface.iml" filepath="$PROJECT_DIR$/pingyougou-sellergoods-interface/pingyougou-sellergoods-interface.iml" />
       <module fileurl="file://$PROJECT_DIR$/pingyougou-sellergoods-service/pingyougou-sellergoods-service.iml" filepath="$PROJECT_DIR$/pingyougou-sellergoods-service/pingyougou-sellergoods-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/pingyougou-shop-web/pingyougou-shop-web.iml" filepath="$PROJECT_DIR$/pingyougou-shop-web/pingyougou-shop-web.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springSecurity/springSecurity.iml" filepath="$PROJECT_DIR$/springSecurity/springSecurity.iml" />
     </modules>
   </component>
 </project>

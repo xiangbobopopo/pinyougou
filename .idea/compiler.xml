@@ -14,7 +14,6 @@
         <module name="pingyougou-sellergoods-service" />
         <module name="pingyougou-shop-web" />
         <module name="pingyougousellers-goods-interface" />
-        <module name="springSecurity" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -28,6 +27,7 @@
       <module name="pingyougou-shop-web" target="1.8" />
       <module name="pingyougousellers-goods-interface" target="1.5" />
       <module name="springSecurity" target="1.8" />
+      <module name="springsecuritydemo" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
